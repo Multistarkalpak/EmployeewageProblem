@@ -4,49 +4,45 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//UC-3
-//Part time Employee Wage
+// UC- 4
+// Part_Time_Switch_case
 
 namespace Program
 {
-    internal class PartTime_Employee_Wage
+    internal class Part_Time_switch_case
     {
-        public int IS_Empolyee_Present = 1;
-        public int Full_time = 1;
-        public int Wage_Per_hour = 20;
-        public int Full_Day_Hour = 16;
-        public int Part_Day_Hour = 8;
-        public int DailyWage = 0;
+        public const int Is_Full_Time = 1;
+        public const int Is_part_Time = 2;
+        public const int Is_absent = 3;
+        int Empdailywage = 0;
+        public int empwage = 20;
 
-        public void CheckDailyEmpWage()
+        public int IsEmployeePresent()
         {
-            Random CheckEmp = new Random();
-            int value = CheckEmp.Next(0, 2);
-            if (value == IS_Empolyee_Present)
-            {
-                Random Timecheck = new Random();
-                int Workinghour = Timecheck.Next(0, 2);
-                if (Workinghour == Full_time)
-                {
-                    DailyWage = Workinghour * Full_Day_Hour;
-                    Console.WriteLine("Employee is present, in full time and Dailywage = {0}", DailyWage);
-                }
+            return new Random().Next(0, 3);
 
-                else
-                {
-                    DailyWage = Workinghour * Part_Day_Hour;
-                    Console.WriteLine("Employee is present, in part time and Dailywage = {0}", DailyWage);
-
-                }
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent");
-            }
 
         }
+        public void CalculateEmpWage()
+        {
+            int EmpWorkinghours = 0;
 
+            switch (IsEmployeePresent())
+            {
+                case Is_absent:
+                    EmpWorkinghours = 0;
+                    break;
+
+                case Is_part_Time:
+                    EmpWorkinghours = 4;
+                    break;
+
+                case Is_Full_Time:
+                    EmpWorkinghours = 8;
+                    break;
+            }
+            Empdailywage = EmpWorkinghours + empwage;
+            Console.WriteLine(" Total Employee Wage = {0}", Empdailywage);
+        }
     }
 }
-
-

@@ -4,34 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//UC-2
+//DailyEmployeeWage
 
-//UC-1
-// check Employee is present or absent
-//use ((Random)) for attendence check
-
-namespace Program
-
+namespace program
 {
-    public class EmpPresentAbsent
-    {
-        public int EmpPresent = 1;
+     public class DailyEmployeewage
+     {
+        int IS_Empolyee_Present = 1;
+        int Wage_Per_hour = 20;
+        int Full_Day_Hour = 8;
+        int DailyWage = 0;
 
-        public void CheckEmpPresentAbesent()
+        public void CheckDailyEmpWage()
         {
-            Random EmpCheck = new Random();
-            int value = EmpCheck.Next(0, 2);
-            if (value == EmpPresent)
+            Random CheckEmp = new Random();
+            int value = CheckEmp.Next(0, 2);
+            if (value == IS_Empolyee_Present)
             {
-                Console.WriteLine("Employee is Present");
+                DailyWage = Full_Day_Hour * Wage_Per_hour;
 
+                Console.WriteLine("Employee Present and Dailywage = {0}", DailyWage);
             }
             else
             {
                 Console.WriteLine("Employee is Absent");
             }
-
         }
-
     }
 }
-

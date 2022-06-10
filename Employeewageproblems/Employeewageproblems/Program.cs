@@ -9,8 +9,8 @@ namespace Program
         public static void Main(string[] args)
         {
             //UC1
-            PartTime_Employee_Wage prg = new PartTime_Employee_Wage();
-            prg.CheckDailyEmpWage();
+            Part_Time_switch_case prg = new Part_Time_switch_case();
+            prg.CalculateEmpWage();
         }
     }
 }
